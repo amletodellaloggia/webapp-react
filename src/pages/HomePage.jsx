@@ -1,4 +1,5 @@
 import axios from "axios";
+import MovieCard from "../components/MovieCard";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
@@ -18,7 +19,7 @@ const HomePage = () => {
 
   return (
     <div className="container my-5">
-      <div className="row">
+      <div className="row mb-4">
         <div className="col-12 text-center">
           <h1>Booflix</h1>
           <h2>
@@ -28,22 +29,8 @@ const HomePage = () => {
       </div>
       <div className="row gy-3">
         {movies.map((movie) => {
-			const {id, image, title, director}=movie;
-          return (
-            <div className="col-12 col-md-6 col-lg-4" key={id}>
-              <div className="card-movie">
-                <img
-                  src={image}
-                  className="cover-movie-card"
-                  alt={title}
-                />
-                <div className="overlay">
-                  <h2>{title}</h2>
-                  <p>{director}</p>
-                </div>
-              </div>
-            </div>
-          );
+          const { id } = movie;
+          return <MovieCard key={id} movie={movie}/>;
         })}
       </div>
     </div>
