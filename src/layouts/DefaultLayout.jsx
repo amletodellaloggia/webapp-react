@@ -3,13 +3,13 @@ import { Outlet } from "react-router-dom";
 
 const DefaultLayout = () => {
   return (
-<>
-<Header />
-<main className="container">
-	<Outlet />
-</main>
-</>
-  )
-}
+    <>
+      <Header />
+      <main className="container">
+        <Outlet />
+      </main>
+    </>
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;
