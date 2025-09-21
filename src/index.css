@@ -6,16 +6,23 @@
 }
 
 header{
-  background-color:#E50914;
+  background-color:#F2000E;
   color: white;
-  padding: 15px 0px;
+  padding: 5px
+}
+
+header img{
+  max-width: 75px;
 }
 
 header h1{
-  color: white;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #FFEDBD;
   font-family: "Bebas Neue", sans-serif;
-  -webkit-text-stroke: 2px rgb(32, 30, 30);
+  -webkit-text-stroke: 0.5px rgb(32, 30, 30);
   margin-bottom: 0;
+  padding-left: 10px;
 }
 
 h1, h2, h3, h4, h5, h6{
