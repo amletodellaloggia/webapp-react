@@ -9,9 +9,13 @@ const HomePage = () => {
       .get("http://localhost:3000/api/movies/")
       .then((resp) => {
         setMovies(resp.data);
+		console.log(resp.data);
       })
       .catch((err) => console.log(err));
   };
+
+  useEffect(fetchMovies, []);
+
   return (
     <div className="container my-5">
       <div className="row">
@@ -23,6 +27,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="row gy-3">
+		
         <div className="col-12 col-md-6 col-lg-4">
           <div className="card-movie">
             <img
