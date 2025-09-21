@@ -9,7 +9,7 @@ const HomePage = () => {
       .get("http://localhost:3000/api/movies/")
       .then((resp) => {
         setMovies(resp.data);
-		console.log(resp.data);
+        console.log(resp.data);
       })
       .catch((err) => console.log(err));
   };
@@ -27,20 +27,24 @@ const HomePage = () => {
         </div>
       </div>
       <div className="row gy-3">
-		
-        <div className="col-12 col-md-6 col-lg-4">
-          <div className="card-movie">
-            <img
-              src="./imgs/movie.jpg"
-              className="cover-movie-card"
-              alt="Movie"
-            />
-            <div className="overlay">
-              <h2>Titolo Movie</h2>
-              <p>Autore</p>
+        {movies.map((movie) => {
+			const {id, image, title, director}=movie;
+          return (
+            <div className="col-12 col-md-6 col-lg-4" key={id}>
+              <div className="card-movie">
+                <img
+                  src={image}
+                  className="cover-movie-card"
+                  alt={title}
+                />
+                <div className="overlay">
+                  <h2>{title}</h2>
+                  <p>{director}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );
