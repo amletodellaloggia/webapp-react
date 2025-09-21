@@ -2,6 +2,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
+  const [movies, setMovies] = useState([]);
+
+  const fetchMovies = () => {
+    axios
+      .get("http://localhost:3000/api/movies/")
+      .then((resp) => {
+        setMovies(resp.data);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="container my-5">
       <div className="row">
