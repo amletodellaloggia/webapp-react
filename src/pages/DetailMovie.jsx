@@ -81,10 +81,10 @@ const DetailMovie = () => {
               key={review.id}
               className="review mb-3 p-3 border rounded bg-dark text-light"
             >
-              <strong>{review.author}</strong>
+              <strong>{review.name}</strong>
               <span className="ms-2">
                 {[1, 2, 3, 4, 5].map((i) =>
-                  i <= review.rating ? (
+                  i <= review.vote ? (
                     <i key={i} className="fa-solid fa-star text-warning"></i>
                   ) : (
                     <i key={i} className="fa-regular fa-star text-warning"></i>
