@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 const DetailMovie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
-  const fetchMovie = () => {
+
+  useEffect(() => {
     axios
       .get(`http://localhost:3000/api/movies/${id}`)
       .then((resp) => {
         setMovie(resp.data);
       })
       .catch((err) => console.log(err));
-  };
+  }, [id]);
 
-  useEffect(fetchMovie, []);
   return (
     <>
       <div className="container">
@@ -42,27 +42,29 @@ const DetailMovie = () => {
           </div>
         </div>
       </div>
-      {/* Recensioni */}
       <div className="reviews-section mt-5">
         <h2>Recensioni</h2>
-        <div className="review mb-3 p-3 border rounded bg-dark text-light">
-          <strong>Mario Rossi</strong>
-          <span className="ms-2">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>
-          </span>
-          <p className="mt-2">
-            Un film davvero emozionante, da vedere assolutamente!
-          </p>
-        </div>
+        {movie.reviews && movie.reviews.length > 0 ? (
+          movie.reviews.map(review => (
+            <div key={review.id} className="review mb-3 p-3 border rounded bg-dark text-light">
+              <strong>{review.name}</strong>
+              <span className="ms-2">
+                {[1,2,3,4,5].map(i =>
+                  i <= review.vote
+                    ? <i key={i} className="fa-solid fa-star text-warning"></i>
+                    : <i key={i} className="fa-regular fa-star text-warning"></i>
+                )}
+              </span>
+              <p className="mt-2">{review.text}</p>
+            </div>
+          ))
+        ) : (
+          <p>Nessuna recensione disponibile.</p>
+        )}
       </div>
-      {/* Torna Indietro */}
       <div className="to-home-btn">
         <Link className="btn btn-secondary square-btn-to-home" to="/">
-          <i class="fa-sharp fa-regular fa-house"></i>
+          <i className="fa-sharp fa-regular fa-house"></i>
         </Link>
       </div>
     </>
