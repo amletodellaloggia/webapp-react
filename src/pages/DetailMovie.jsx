@@ -2,11 +2,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import NotFound from "./NotFound";
 
 const DetailMovie = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState(null);
   const [hasPrev, setHasPrev] = useState(true);
   const [hasNext, setHasNext] = useState(true);
 
@@ -24,9 +25,13 @@ const DetailMovie = () => {
           .then(() => setHasNext(true))
           .catch(() => setHasNext(false));
       })
-      .catch((err) => console.log(err));
+      .catch(() => {
+        setMovie(null);
+      });
   }, [id]);
-
+  if (movie === null) {
+    return <NotFound />;
+  }
   return (
     <>
       <div className="container">

@@ -1,5 +1,5 @@
 /* CSS Reset */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,18 +7,18 @@
 
 /* Header */
 
-header{
-  background-color:#F2000E;
+header {
+  background-color: #F2000E;
   color: white;
   padding: 5px;
   /* border-bottom: 2px solid #353535; */
 }
 
-header img{
+header img {
   max-width: 75px;
 }
 
-header h1{
+header h1 {
   font-weight: 600;
   font-size: 2.5rem;
   color: #FFEDBD;
@@ -28,34 +28,39 @@ header h1{
   padding-left: 10px;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #dedede;
   font-family: "Bebas Neue", sans-serif;
 }
 
 /* Body */
 
-body{
+body {
   background-color: rgb(32, 30, 30)
 }
 
 
 /* Movie Card */
 
-.card-movie{
+.card-movie {
   height: 550px;
   border: 2.5px solid #353535;
   position: relative;
 }
 
-.cover-movie-card{
+.cover-movie-card {
   width: 550px;
   max-width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.overlay{
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -72,57 +77,70 @@ body{
   flex-direction: column;
 }
 
-.card-movie:hover .overlay{
-  opacity: 0.90; 
+.card-movie:hover .overlay {
+  opacity: 0.90;
 }
 
-.overlay h2{
+.overlay h2 {
   color: rgb(255, 255, 255);
 }
 
-.detail-card{
+.detail-card {
   background-color: #F2000E;
   margin-top: 50px 0px;
 
 }
 
-.cover-image{
+.cover-image {
   width: 40%;
 }
 
-.cover-image img{
+.cover-image img {
   max-width: 100%;
 }
 
-.text-details{
+.text-details {
   width: 60%;
   padding: 25px;
 }
 
-.text-details > *{
+.text-details>* {
   color: white;
   margin: 20px 0px;
 }
 
-.to-home-btn{
+.to-home-btn {
   position: fixed;
   bottom: 40px;
   right: 30px;
 }
 
-.square-btn-to-home{
+.square-btn-to-home {
   border: none;
   padding: 30px;
-  background-color:#F2000E;
+  background-color: #F2000E;
   color: white;
   text-decoration: none;
   transition: 0.4s ease;
   border-radius: 0;
 }
 
-.square-btn-to-home:hover{
+.square-btn-to-home:hover {
   background-color: #81060c;
   color: white;
 }
 
+.not-found {
+  text-align: center;
+  margin-top: 80px;
+  color: #dc3545;
+}
 
+.not-found h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.not-found p {
+  font-size: 1.2rem;
+}
