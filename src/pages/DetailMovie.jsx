@@ -43,8 +43,8 @@ const DetailMovie = () => {
         </div>
       </div>
         <div className="to-home-btn">
-          <Link className="btn btn-secondary" to="/">
-            <i className="square-btn-to-home" to="/"></i>
+          <Link className="btn btn-secondary square-btn-to-home" to="/">
+            <i class="fa-sharp fa-regular fa-house"></i>
           </Link>
         </div>
     </>
