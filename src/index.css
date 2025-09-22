@@ -10,7 +10,8 @@
 header{
   background-color:#F2000E;
   color: white;
-  padding: 5px
+  padding: 5px;
+  /* border-bottom: 2px solid #353535; */
 }
 
 header img{
@@ -123,3 +124,5 @@ body{
   background-color: #81060c;
   color: white;
 }
+
+
