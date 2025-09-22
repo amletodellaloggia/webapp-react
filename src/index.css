@@ -110,16 +110,16 @@ body{
 }
 
 .square-btn-to-home{
-  border: 2px solid white;
+  border: none;
   padding: 30px;
   background-color:#F2000E;
   color: white;
   text-decoration: none;
   transition: 0.4s ease;
+  border-radius: 0;
 }
 
 .square-btn-to-home:hover{
-  border: 2px solid white;
   background-color: #81060c;
   color: white;
 }

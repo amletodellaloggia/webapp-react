@@ -42,11 +42,29 @@ const DetailMovie = () => {
           </div>
         </div>
       </div>
-        <div className="to-home-btn">
-          <Link className="btn btn-secondary square-btn-to-home" to="/">
-            <i class="fa-sharp fa-regular fa-house"></i>
-          </Link>
+      {/* Recensioni */}
+      <div className="reviews-section mt-5">
+        <h2>Recensioni</h2>
+        <div className="review mb-3 p-3 border rounded bg-dark text-light">
+          <strong>Mario Rossi</strong>
+          <span className="ms-2">
+            <i className="fa-solid fa-star text-warning"></i>
+            <i className="fa-solid fa-star text-warning"></i>
+            <i className="fa-solid fa-star text-warning"></i>
+            <i className="fa-solid fa-star text-warning"></i>
+            <i className="fa-regular fa-star text-warning"></i>
+          </span>
+          <p className="mt-2">
+            Un film davvero emozionante, da vedere assolutamente!
+          </p>
         </div>
+      </div>
+      {/* Torna Indietro */}
+      <div className="to-home-btn">
+        <Link className="btn btn-secondary square-btn-to-home" to="/">
+          <i class="fa-sharp fa-regular fa-house"></i>
+        </Link>
+      </div>
     </>
   );
 };
