@@ -78,3 +78,48 @@ body{
 .overlay h2{
   color: rgb(255, 255, 255);
 }
+
+.detail-card{
+  background-color: #F2000E;
+  margin-top: 50px 0px;
+
+}
+
+.cover-image{
+  width: 40%;
+}
+
+.cover-image img{
+  max-width: 100%;
+}
+
+.text-details{
+  width: 60%;
+  padding: 25px;
+}
+
+.text-details > *{
+  color: white;
+  margin: 20px 0px;
+}
+
+.to-home-btn{
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+}
+
+.square-btn-to-home{
+  border: 2px solid white;
+  padding: 30px;
+  background-color:#F2000E;
+  color: white;
+  text-decoration: none;
+  transition: 0.4s ease;
+}
+
+.square-btn-to-home:hover{
+  border: 2px solid #81060c;
+  background-color: #353535;
+  color: #F2000E; 
+}
