@@ -68,7 +68,7 @@ body {
   width: 100%;
   padding: 20px;
   background-color: rgb(32, 30, 30);
-  color: rgb(255, 255, 255);
+  color: white;
   opacity: 0;
   transition: 0.4s ease;
   display: flex;
@@ -82,7 +82,7 @@ body {
 }
 
 .overlay h2 {
-  color: rgb(255, 255, 255);
+  color: gold;
 }
 
 .detail-card {
@@ -101,12 +101,22 @@ body {
 
 .text-details {
   width: 60%;
-  padding: 25px;
 }
 
 .text-details>* {
   color: white;
-  margin: 20px 0px;
+  margin: 5px 15px;
+}
+
+.text-details-title{
+  color: gold;
+  font-family: "Bebas Neue", sans-serif;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.text-details span{
+  font-size: 15px
 }
 
 .to-home-btn {

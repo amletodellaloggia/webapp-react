@@ -44,13 +44,12 @@ const DetailMovie = () => {
                 </div>
                 <div className="text-details details-relative w-100">
                   <h1>{movie.title}</h1>
-                  <p>{movie.average_vote}</p>
-                  <p>{movie.genre}</p>
-                  <p>{movie.release_year}</p>
-                  <p>{movie.director}</p>
+                  <p><p className="text-details-title">Genere</p><span className="d-block px-2">{movie.genre}</span></p>
+                  <p><p className="text-details-title">Anno Uscita</p><span className="d-block px-2">{movie.release_year}</span></p>
+                  <p><p className="text-details-title">Regista</p><span className="d-block px-2">{movie.director}</span></p>
                   <p>
-                    <em>Riassunto</em>:
-                    <span className="d-block">{movie.abstract}</span>
+                    <p className="text-details-title">Riassunto</p>
+                    <span className="d-block px-2">{movie.abstract}</span>
                   </p>
                 </div>
               </div>
