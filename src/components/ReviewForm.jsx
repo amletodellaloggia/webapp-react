@@ -3,12 +3,12 @@ import { useState } from "react";
 
 const ReviewForm = ({ movieId }) => {
 	const apiUrl = `http://localhost:3000/api/${movieId}/reviews`;
-
-	const [formData, setFormData] = useState({
+	const initialData = {
 		text: "",
-		value: "",
+		vote: "",
 		name: ""
-	});
+	};
+	const [formData, setFormData] = useState(initialData);
 
 	const setFieldValue = (e) => {
 		const {name, value} = e.target;
@@ -18,11 +18,10 @@ const ReviewForm = ({ movieId }) => {
 		});
 	};
 
-
 const handleSubmit = (e) => {
 	e.preventDefault();
-	axios.post(apiUrl, formData, {headers: { "Content-Type": "application.json"}})
-	.then(() => {
+	axios.post(apiUrl, formData, {headers: { "Content-Type": "application/json"}})
+	.then((resp) => {
 		setFormData(initialData);
 	})
 }
