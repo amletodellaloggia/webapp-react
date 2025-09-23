@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import NotFound from "./NotFound";
+import ReviewForm from "../components/ReviewForm";
 
 const DetailMovie = () => {
   const { id } = useParams();
@@ -97,6 +98,9 @@ const DetailMovie = () => {
         ) : (
           <p>Nessuna recensione disponibile.</p>
         )}
+      </div>
+      <div className="review-form">
+        <ReviewForm movieId={id}/>
       </div>
       <div className="to-home-btn">
         <Link className="btn btn-secondary square-btn-to-home" to="/">

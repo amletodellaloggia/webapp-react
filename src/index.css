@@ -154,3 +154,7 @@ body {
 .not-found p {
   font-size: 1.2rem;
 }
+
+.btn-secondary{
+  border: none;
+}
