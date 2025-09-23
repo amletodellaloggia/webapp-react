@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const ReviewForm = ({ movieId }) => {
+const ReviewForm = ({ movieId, reloadReviews }) => {
 	const apiUrl = `http://localhost:3000/api/${movieId}/reviews`;
 	const initialData = {
 		text: "",
@@ -23,6 +23,7 @@ const handleSubmit = (e) => {
 	axios.post(apiUrl, formData, {headers: { "Content-Type": "application/json"}})
 	.then((resp) => {
 		setFormData(initialData);
+		reloadReviews();
 	})
 }
 

@@ -11,6 +11,14 @@ const DetailMovie = () => {
   const [movie, setMovie] = useState(null);
   const [hasPrev, setHasPrev] = useState(true);
   const [hasNext, setHasNext] = useState(true);
+  const fetchMovie = () => {
+    axios
+      .get(`http://localhost:3000/api/movies/${id}`)
+      .then((resp) => {
+        setMovie(resp.data);
+  })
+  .catch(()=> navigate("/not-found", {replace: true}));
+};
 
   useEffect(() => {
     axios
@@ -100,7 +108,7 @@ const DetailMovie = () => {
         )}
       </div>
       <div className="review-form">
-        <ReviewForm movieId={id}/>
+        <ReviewForm movieId={id} reloadReviews ={fetchMovie}/>
       </div>
       <div className="to-home-btn">
         <Link className="btn btn-secondary square-btn-to-home" to="/">
