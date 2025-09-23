@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const ReviewForm = ({ movieId, reloadReviews }) => {
-	const apiUrl = `http://localhost:3000/api/${movieId}/reviews`;
+	const apiUrl = `http://localhost:3000/api/movies/${movieId}/reviews`;
 	const initialData = {
 		text: "",
 		vote: "",
