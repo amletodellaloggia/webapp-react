@@ -65,18 +65,18 @@ const handleSubmit = (e) => {
           <label htmlFor="" className="form-label">
             Testo Recensione
           </label>
-          <input
+          <textarea
             type="text"
             className="form-control"
             placeholder="Testo Recensione"
             name="text"
             id="text"
+            rows="4"
 			value={formData.text}
-			onChange={setFieldValue}
-          />
+			onChange={setFieldValue}/>
         </div>
 		<div className="my-3">
-			<button className="btn-secondary" type="submit">Salva</button>
+			<button className="btn btn-secondary" type="submit">Salva</button>
 		</div>
       </form>
     </div>
