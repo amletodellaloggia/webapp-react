@@ -18,6 +18,18 @@ header img {
   max-width: 75px;
 }
 
+header.container-fluid,
+header .row,
+header .col-12 {
+  overflow: visible !important;
+}
+
+header.container-fluid {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 2;
+}
+
 header h1 {
   font-weight: 600;
   font-size: 2.5rem;
@@ -101,6 +113,10 @@ body {
 
 .text-details {
   width: 60%;
+}
+
+.text-details h1{
+  padding-top: 20px;
 }
 
 .text-details>* {
