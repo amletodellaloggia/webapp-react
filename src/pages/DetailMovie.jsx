@@ -1,24 +1,31 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import NotFound from "./NotFound";
 import ReviewForm from "../components/ReviewForm";
+import GlobalContext from "../contexts/globalContext";
 
 const DetailMovie = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
+  const { setIsLoading } = useContext(GlobalContext);
   const [hasPrev, setHasPrev] = useState(true);
   const [hasNext, setHasNext] = useState(true);
   const fetchMovie = () => {
+    setIsLoading(true);
     axios
       .get(`http://localhost:3000/api/movies/${id}`)
       .then((resp) => {
         setMovie(resp.data);
-  })
-  .catch(()=> navigate("/not-found", {replace: true}));
-};
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
+        navigate("/not-found", { replace: true });
+      });
+  };
 
   useEffect(() => {
     axios
@@ -53,13 +60,22 @@ const DetailMovie = () => {
                 </div>
                 <div className="text-details details-relative w-100">
                   <h1>{movie.title}</h1>
-                  <p><p className="text-details-title">Genere</p><span className="d-block px-2">{movie.genre}</span></p>
-                  <p><p className="text-details-title">Anno Uscita</p><span className="d-block px-2">{movie.release_year}</span></p>
-                  <p><p className="text-details-title">Regista</p><span className="d-block px-2">{movie.director}</span></p>
-                  <p>
+                  <div>
+                    <p className="text-details-title">Genere</p>
+                    <span className="d-block px-2">{movie.genre}</span>
+                  </div>
+                  <div>
+                    <p className="text-details-title">Anno Uscita</p>
+                    <span className="d-block px-2">{movie.release_year}</span>
+                  </div>
+                  <div>
+                    <p className="text-details-title">Regista</p>
+                    <span className="d-block px-2">{movie.director}</span>
+                  </div>
+                  <div>
                     <p className="text-details-title">Riassunto</p>
                     <span className="d-block px-2">{movie.abstract}</span>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -108,7 +124,7 @@ const DetailMovie = () => {
         )}
       </div>
       <div className="review-form">
-        <ReviewForm movieId={id} reloadReviews ={fetchMovie}/>
+        <ReviewForm movieId={id} reloadReviews={fetchMovie} />
       </div>
       <div className="to-home-btn">
         <Link className="btn btn-secondary square-btn-to-home" to="/">
