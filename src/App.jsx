@@ -3,9 +3,11 @@ import HomePage from "./pages/HomePage";
 import DetailMovie from "./pages/DetailMovie";
 import NotFound from "./pages/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GlobalContext from "./contexts/globalContext";
 
 function App() {
   return (
+    <GlobalContext.Provider>
     <BrowserRouter>
       <Routes>
         <Route element={<DefaultLayout />}>
@@ -15,6 +17,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
+    </GlobalContext.Provider>
   );
 }
 
