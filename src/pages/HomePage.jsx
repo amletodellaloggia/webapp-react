@@ -1,17 +1,19 @@
 import axios from "axios";
 import MovieCard from "../components/MovieCard";
-import { useState, useEffect } from "react";
-import Loader from "../components/Loader";
+import { useState, useEffect, useContext } from "react";
+import GlobalContext from "../contexts/globalContext";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
+    const {setIsLoading} = useContext(GlobalContext);
 
   const fetchMovies = () => {
+    setIsLoading(true);
     axios
       .get("http://localhost:3000/api/movies/")
       .then((resp) => {
         setMovies(resp.data);
-        console.log(resp.data);
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   };
@@ -20,7 +22,6 @@ const HomePage = () => {
 
   return (
     <div className="container my-5">
-      <Loader />
       <div className="row mb-4">
         <div className="col-12 text-center">
           <h1>Booflix</h1>
