@@ -1,6 +1,7 @@
 import axios from "axios";
 import MovieCard from "../components/MovieCard";
 import { useState, useEffect } from "react";
+import Loader from "../components/Loader";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -19,6 +20,7 @@ const HomePage = () => {
 
   return (
     <div className="container my-5">
+      <Loader />
       <div className="row mb-4">
         <div className="col-12 text-center">
           <h1>Booflix</h1>
